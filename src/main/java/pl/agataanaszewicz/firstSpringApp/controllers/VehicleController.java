@@ -23,7 +23,7 @@ public class VehicleController {
     public String vehcileGet(Locale locale, Model model){
         model.addAttribute("vehicleForm", new VehicleForm());
 
-        String s = messageSource.getMessage("hello.message", new Object[]{"Oskar"}, locale);
+        String s = messageSource.getMessage("hello.message", new Object[]{"Agata"}, locale);
 
         System.out.println(s);
         return "vehicle";
@@ -31,7 +31,6 @@ public class VehicleController {
 
     @RequestMapping(value = "/vehicle", method = RequestMethod.POST)
     public String vehcilePost(@ModelAttribute("vehicleForm") @Valid VehicleForm form, BindingResult result, Model model){
-        // Wyświetlamy tylko i wyłącznie rok produkcji
 
         if(result.hasErrors()){
             model.addAttribute("info", "Wypełnij poprawnie formularz");
