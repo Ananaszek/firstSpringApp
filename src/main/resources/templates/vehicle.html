@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1>
+        <span th:text="${info}" th:style="'color: ' + ${infoColor}"></span>
+    </h1>
+</center>
+
+<br/>
+
+<p th:text="#{hello.message}"></p>
+
+
+<form th:action="@{/vehicle}" method="post" th:object="${vehicleForm}">
+    <p th:if="${#fields.hasErrors('mark')}" th:errors="*{mark}"></p>
+    Marka: <input type="text" th:field="*{mark}"/><p></p>
+    <p th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></p>
+    Model: <input type="text" th:field="*{model}"/><p></p>
+    <p th:if="${#fields.hasErrors('productionYear')}" th:errors="*{productionYear}"></p>
+    Rok produkcji: <input type="text"  th:field="*{productionYear}"/><p></p>
+    <input type="submit" value="Wyslij"/>
+</form>
+</body>
+</html>
